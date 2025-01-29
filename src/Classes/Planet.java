@@ -28,14 +28,25 @@ public abstract class Planet implements CelestialBody {
      * @throws IllegalArgumentException if the sunPosition is null or invalid.
      */
     public void updatePosition(double[] sunPosition, double sunMass, double timeStep) {
+        if ((sunPosition == null || sunPosition.length != 2) || sunMass <= 0) {
+            throw new IllegalArgumentException("Sun Position and/or mass MUST be positive");
+        }
         
-        /*TODO add your solution here*/
+        /*add your solution here*/
         
-        /*TODO Calculate the distance between the Sun and the Planet*/
+        /* Calculate the distance between the Sun and the Planet*/
+        final double dx = sunPosition[0] - position[0];
+		final double dy = sunPosition[1] - position[1];
+        final double distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
+        
+        /* Calculate the gravitational force*/
+        final double force = GRAVITATIONAL_CONSTANT * (mass * sunMass) / Math.pow(distance, 2);
 
-        /*TODO Calculate the gravitational force*/
-
-        /*TODO Calculate the acceleration*/
+        /* Calculate the acceleration*/
+        final double ax = force * (dx/distance) / mass;
+        final double ay = force * (dy/distance) / mass;
+        acceleration[0] = ax;
+        acceleration[1] = ay;
 
         // Update velocity
         velocity[0] += ax * timeStep;

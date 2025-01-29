@@ -6,7 +6,7 @@ package Classes;
  * 
  */
 
-public class Saturn /*TODO*/ {
+public class Saturn extends Planet {
 
     private static final String SATURN_IMAGE = "./src/resources/Saturn.png";
 
@@ -22,10 +22,7 @@ public class Saturn /*TODO*/ {
      * @throws IllegalArgumentException if any parameter is invalid.
      */
     public Saturn(double mass, double radius, double[] position, double[] velocity) {
-        /**
-         * TODO Add your solution here
-         * Hint: Lookup the keyword Super
-         * */
+        super(SATURN_IMAGE, mass, radius, position, velocity);
     }
 
     /**

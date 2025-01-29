@@ -5,7 +5,7 @@ package Classes;
  * The Earth is initialized with its unique properties and provides an image path for rendering.
  * 
  */
-public class Earth /*TODO*/ {
+public class Earth extends Planet {
 
     private static final String EARTH_IMAGE = "./src/resources/Earth.png";
 
@@ -21,10 +21,7 @@ public class Earth /*TODO*/ {
      * @throws IllegalArgumentException if any parameter is invalid.
      */
     public Earth(double mass, double radius, double[] position, double[] velocity) {
-    	/**
-         * TODO Add your solution here
-         * Hint: Lookup the keyword Super
-         * */
+        super(EARTH_IMAGE, mass, radius, position, velocity);
     }
 
     /**
